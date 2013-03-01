@@ -7,8 +7,10 @@
  *
  */
 
+#import <MapKit/MKFoundation.h>
 #import <MapKit/MKMapView.h>
 #import <MapKit/MKMapView+Additions.h>
+#import <MapKit/MKMapView+ZoomLevel.h>
 #import <MapKit/MKTypes.h>
 #import <MapKit/MKGeometry.h>
 #import <MapKit/MKUserLocation.h>
