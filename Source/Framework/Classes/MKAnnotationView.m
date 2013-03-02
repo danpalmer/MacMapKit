@@ -72,6 +72,9 @@
     
     if ([self.annotation title])
         [options setObject:[self.annotation title] forKey:@"title"];
+	
+	if ([self.annotation subtitle])
+        [options setObject:[self.annotation subtitle] forKey:@"subtitle"];
     
     [options setObject:[NSNumber numberWithBool:draggable] forKey:@"draggable"];
     //NSLog(@"options = %@", options);

@@ -60,6 +60,7 @@
     MKPointAnnotation *pin = [[[MKPointAnnotation alloc] init] autorelease];
     pin.coordinate = [mapView centerCoordinate];
     pin.title = self.pinTitle;
+	pin.subtitle = @"Subtitle Text";
     
     MKCircle *circle = [MKCircle circleWithCenterCoordinate:[mapView centerCoordinate] radius:300];
     
