@@ -1,7 +1,7 @@
 # Be sure to run `pod spec lint MacMapKit.podspec' to ensure this is a
 Pod::Spec.new do |s|
   s.name      = "MacMapKit"
-  s.version   = "0.0.2"
+  s.version   = "0.0.3"
   s.summary   = "MapKit Framework for the Mac."
   s.homepage  = "https://github.com/Oomph/MacMapKit"
   s.author    = { "Rick Fillion" => "rick@centrix.ca" }
