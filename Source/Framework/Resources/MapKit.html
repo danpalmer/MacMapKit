@@ -256,144 +256,13 @@ AnnotationOverlay.prototype.createCallout = function() {
   this.calloutSubtitle_ = calloutSubtitleSpan;
 }
 
-AnnotationOverlay.prototype.drawCallout = function() {
-
-  // // get the canvas element using the DOM
-  // var canvas = this.calloutCanvas_;
-  // // use getContext to use the canvas for drawing
-  // var ctx = canvas.getContext('2d');
-
-  // var width = canvas.offsetWidth;
-  // var height = canvas.offsetHeight;
-  // // Reset the coordinate space.
-  // canvas.width = width;
-  // canvas.height = height;
-  // var offset = 0.5
-
-  // var radius = 5.0;
-  // var TIP_HEIGHT = 13;
-  // var TIP_WIDTH = 27;
-  // var MARGIN = 4.0;
-  // var minx = MARGIN + offset;
-  // var midx = Math.round((width - MARGIN) / 2) + offset;
-  // var maxx = width - 2 * MARGIN + offset;
-  // var miny = MARGIN + offset;
-  // var midy = MARGIN + Math.round((height - 2 * MARGIN) / 2.0) - Math.round(TIP_HEIGHT / 2) + offset;
-  // var maxy = height - 2 * MARGIN - TIP_HEIGHT + offset;
-
-  // var tipTopLeftX = midx - Math.round(TIP_WIDTH / 2);
-  // var tipTopLeftY = maxy;
-  // var tipTopRightX = midx + Math.round(TIP_WIDTH / 2);
-  // var tipTopRightY = maxy;
-  // var tipBottomX = midx;
-  // var tipBottomY = maxy + TIP_HEIGHT;
-
-  // ctx.beginPath();
-  // ctx.moveTo(minx, midy); // left edge
-  // ctx.arc(minx + radius, miny + radius, radius, Math.PI, (3 / 2) * Math.PI, false); // top left corner to top edge
-  // ctx.arc(maxx - radius, miny + radius, radius, (3 / 2) * Math.PI, 0, false); // top right corner, to right edge
-  // ctx.arc(maxx - radius, maxy - radius, radius, 0, (1 / 2) * Math.PI, false); // bottom right corner, to bottom edge
-  // ctx.lineTo(tipTopRightX, tipTopRightY); // down to tip
-  // ctx.lineTo(tipBottomX, tipBottomY); // down to tip
-  // ctx.lineTo(tipTopLeftX, tipTopLeftY); // back up to bottom edge-ish.
-  // ctx.arc(minx + radius, maxy - radius, radius, (1 / 2) * Math.PI, Math.PI, false); // bottom left corner, to left edge
-  // ctx.closePath();
-
-
-
-  // // Prep to draw shadow (WebKit doesn't support drawing shadows on gradients, so a hack is needed.)
-  // ctx.shadowBlur = 6;
-  // ctx.shadowOffsetX = 0;
-  // ctx.shadowOffsetY = 3;
-  // ctx.shadowColor = 'rgba(0,0,0,0.4);';
-  // ctx.fill();
-  // // Clear the path to draw the real stuff.
-  // {
-  //   ctx.save();
-  //   ctx.globalCompositeOperation = 'copy';
-  //   ctx.fillStyle = 'rgba(0,0,0,0)';
-  //   ctx.fill();
-  //   ctx.restore();
-  // }
-  // // Draw real fill
-  // var lingrad = ctx.createLinearGradient(0, 0, 0, maxy);
-  // lingrad.addColorStop(0, 'rgba(130,130,130,0.62);');
-  // lingrad.addColorStop(0.55, 'rgba(55,55,55,0.62);');
-  // lingrad.addColorStop(0.5501, 'rgba(20,20,20,0.62);');
-  // lingrad.addColorStop(1, 'rgba(10,10,10,0.62);');
-  // ctx.lineWidth = 1;
-  // ctx.strokeStyle = '#555'; //'rgba(0.9,0.9,0.9,1.0)';
-  // ctx.stroke();
-  // ctx.fillStyle = lingrad;
-  // ctx.fill();
-
-  // minx = minx + 1;
-  // maxx = maxx - 1;
-  // miny = miny + 1;
-  // maxy = maxy - 1;
-
-  // tipTopLeftY = tipTopLeftY - 1;
-  // tipTopRightY = tipTopRightY - 1;
-  // tipBottomY = tipBottomY - 1;
-
-  // ctx.beginPath();
-  // ctx.moveTo(minx, midy); // left edge
-  // ctx.arc(minx + radius, miny + radius, radius, Math.PI, (3 / 2) * Math.PI, false); // top left corner to top edge
-  // ctx.arc(maxx - radius, miny + radius, radius, (3 / 2) * Math.PI, 0, false); // top right corner, to right edge
-  // ctx.arc(maxx - radius, maxy - radius, radius, 0, (1 / 2) * Math.PI, false); // bottom right corner, to bottom edge
-  // ctx.lineTo(tipTopRightX, tipTopRightY); // down to tip
-  // ctx.lineTo(tipBottomX, tipBottomY); // down to tip
-  // ctx.lineTo(tipTopLeftX, tipTopLeftY); // back up to bottom edge-ish.
-  // ctx.arc(minx + radius, maxy - radius, radius, (1 / 2) * Math.PI, Math.PI, false); // bottom left corner, to left edge
-  // ctx.closePath();
-
-
-  // var lingrad = ctx.createLinearGradient(0, 0, 0, height);
-  // lingrad.addColorStop(0, 'rgba(250,250,250,0.95);');
-  // lingrad.addColorStop(0.3, 'rgba(130,130,130,0.1);');
-  // lingrad.addColorStop(0.75, 'rgba(150,150,150,0.1);');
-  // lingrad.addColorStop(1, 'rgba(210,210,210,0.2);');
-  // ctx.lineWidth = 1;
-  // ctx.strokeStyle = lingrad;
-  // ctx.stroke();
-
-  // // draw text.
-  // ctx.fillStyle = "#fff";
-  // ctx.font = "bold 16px Lucida Grande";
-  // var text = this.calloutText_.innerHTML;
-  // var ellipsisText = "...";
-  // var ellipsisTextSize = ctx.measureText(ellipsisText);
-  // var maxWidth = 250;
-  // var textSize = ctx.measureText(text);
-  // var truncated = false;
-  // newText = text;
-  // if(textSize.width > maxWidth) {
-  //   while(textSize.width + ellipsisTextSize.width > maxWidth) {
-  //     newText = newText.substring(0, newText.length - 1);
-  //     textSize = ctx.measureText(newText);
-  //   }
-  //   truncated = true;
-  // }
-  // if(truncated) {
-  //   newText = newText + ellipsisText;
-  // }
-  // ctx.shadowBlur = 1;
-  // ctx.shadowOffsetX = 0;
-  // ctx.shadowOffsetY = -1;
-  // ctx.shadowColor = 'rgba(0,0,0,1);';
-
-  // var leftOffset = this.calloutText_.offsetLeft;
-  // ctx.fillText(newText, leftOffset, 30);
-}
 
 AnnotationOverlay.prototype.setCalloutText = function(newText) {
   this.calloutText_.innerHTML = newText;
-  this.drawCallout();
 }
 
 AnnotationOverlay.prototype.setCalloutSubtitle = function(newSubtitle) {
   this.calloutSubtitle_.innerHTML = newSubtitle;
-  this.drawCallout();
 }
 
 AnnotationOverlay.prototype.pulseCallout = function() {
@@ -419,7 +288,6 @@ AnnotationOverlay.prototype.setCalloutHidden = function(isHidden) {
     this.calloutWrapper_.style.display = "none";
   } else {
     this.calloutWrapper_.style.display = "block";
-    this.drawCallout();
     this.placeCallout();
     this.pulseCallout();
   }
@@ -487,7 +355,6 @@ AnnotationOverlay.prototype.draw = function() {
   div.style.width = imageWidth + 'px';
   div.style.height = imageHeight + 'px';
   this.placeCallout();
-  this.drawCallout();
 }
 
 AnnotationOverlay.prototype.onRemove = function() {
