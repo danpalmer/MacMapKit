@@ -12,8 +12,10 @@
 @interface MKWebView : WebView 
 {
     NSDate *lastHitTestDate;
+	BOOL _userInteractionEnabled;
 }
 
 @property (nonatomic, readonly) NSDate *lastHitTestDate;
+@property (assign) BOOL userInteractionEnabled;
 
 @end

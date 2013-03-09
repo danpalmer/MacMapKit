@@ -218,6 +218,16 @@
     return [visible boolValue];
 }
 
+- (BOOL)userInteractionEnabled
+{
+	return [webView userInteractionEnabled];
+}
+
+- (void)setUserInteractionEnabled:(BOOL)userInteractionEnabled
+{
+	[webView setUserInteractionEnabled:userInteractionEnabled];
+}
+
 #pragma mark Overlays
 
 - (NSArray *)overlays

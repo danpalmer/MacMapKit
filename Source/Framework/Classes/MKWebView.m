@@ -12,6 +12,7 @@
 @implementation MKWebView
 
 @synthesize lastHitTestDate;
+@dynamic userInteractionEnabled;
 
 - (void)dealloc
 {
@@ -21,10 +22,23 @@
 
 - (NSView *)hitTest:(NSPoint)aPoint
 {
-    //NSLog(@"hitTest: %@", NSStringFromPoint(aPoint));
-    [lastHitTestDate release];
-    lastHitTestDate = [[NSDate date] retain];
-    return [super hitTest:aPoint];
+    if (_userInteractionEnabled) {
+		[lastHitTestDate release];
+		lastHitTestDate = [[NSDate date] retain];
+		return [super hitTest:aPoint];
+	} else {
+		return nil;
+	}
+}
+
+- (BOOL)userInteractionEnabled
+{
+	return _userInteractionEnabled;
+}
+
+- (void)setUserInteractionEnabled:(BOOL)userInteractionEnabled
+{
+	_userInteractionEnabled = userInteractionEnabled;
 }
 
 @end

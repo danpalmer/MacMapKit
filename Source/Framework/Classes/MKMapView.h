@@ -59,6 +59,9 @@
 - (void)setCenterCoordinate:(CLLocationCoordinate2D)coordinate animated:(BOOL)animated;
 - (void)setRegion:(MKCoordinateRegion)region animated:(BOOL)animated;
 
+- (BOOL)userInteractionEnabled;
+- (void)setUserInteractionEnabled:(BOOL)userInteractionEnabled;
+
 // Overlays
 - (void)addOverlay:(id < MKOverlay >)overlay;
 - (void)addOverlays:(NSArray *)overlays;
